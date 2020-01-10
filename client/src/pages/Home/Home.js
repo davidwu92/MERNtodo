@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import NewTaskForm from '../../components/NewTaskForm'
 import TaskList from '../../components/TaskList'
 import axios from 'axios'
-import TaskContext from '../utils/TaskContext'
+import TaskContext from '../../utils/TaskContext'
 
-class Task extends Component {
+class Home extends Component {
   state = {
     task: '',
     handleInputChange: event =>{
@@ -15,7 +15,7 @@ class Task extends Component {
       axios.get('tasks')
         .then(data => console.log(data))
         .catch(e=>console.error(e))
-    },
+    }
   }  
   render () {
     return (
@@ -27,4 +27,4 @@ class Task extends Component {
   }
 }
 
-export default Task
+export default Home

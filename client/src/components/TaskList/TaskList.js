@@ -7,9 +7,9 @@ const TaskList = () => {
   return (
     <TaskContext.Consumer>
       {
-        <div>
-          <p>{task}</p>
-        </div>
+        () => (
+          <div></div>
+        )
       }
     </TaskContext.Consumer>
   )
