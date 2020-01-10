@@ -1,6 +1,9 @@
 //server.js
+require('dotenv').config()
+require('./config')
 const express = require('express')
-const {join} = require('path')
+const { join } = require('path')
+const axios = require('axios')
 const app = express()
 
 //middlewares
@@ -8,4 +11,6 @@ app.use(express.static(join(__dirname, 'client', 'build')))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-app.listen(process.env.PORT || 3001)
+require('./routes')(app)
+
+require('mongoose').connection.once('open', () => app.listen(process.env.PORT || 3001))
